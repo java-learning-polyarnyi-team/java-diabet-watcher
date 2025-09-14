@@ -1,13 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.dto.IndexMeasurementDTO;
 import com.example.demo.controller.dto.SugarMeasurementDTO;
 import com.example.demo.repository.MeasurementRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public class MeasurementService {
     private MeasurementRepository measurementRepository;
 
@@ -25,7 +24,7 @@ public class MeasurementService {
     }
 
 
-    public SugarMeasurementDTO deleteMeasurement(IndexMeasurementDTO indexDTO) {
-        return measurementRepository.delete(indexDTO);
+    public SugarMeasurementDTO deleteMeasurement(Integer index) {
+        return measurementRepository.delete(index);
     }
 }

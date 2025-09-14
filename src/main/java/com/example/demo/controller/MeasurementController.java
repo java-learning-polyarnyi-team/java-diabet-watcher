@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.controller.dto.IndexMeasurementDTO;
 import com.example.demo.controller.dto.SugarMeasurementDTO;
 import com.example.demo.service.MeasurementService;
 import org.springframework.web.bind.annotation.*;
@@ -8,10 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class HelloWorldController {
+public class MeasurementController {
     public MeasurementService measurementService;
 
-    public HelloWorldController(MeasurementService measurementService) {
+    public MeasurementController(MeasurementService measurementService) {
         this.measurementService = measurementService;
     }
 
@@ -25,8 +24,8 @@ public class HelloWorldController {
         return measurementService.getSugarMeasurements();
     }
 
-    @DeleteMapping(path = "/sugar/measurement")
-    public SugarMeasurementDTO deleteMeasurement(@RequestBody IndexMeasurementDTO indexDTO) {
-        return measurementService.deleteMeasurement(indexDTO);
+    @DeleteMapping(path = "/sugar/measurement/{index}")
+    public SugarMeasurementDTO deleteMeasurement(@PathVariable("index") Integer index) {
+        return measurementService.deleteMeasurement(index);
     }
 }

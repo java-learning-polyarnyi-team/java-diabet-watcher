@@ -1,6 +1,5 @@
 package com.example.demo.repository;
 
-import com.example.demo.controller.dto.IndexMeasurementDTO;
 import com.example.demo.controller.dto.SugarMeasurementDTO;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +19,7 @@ public class MeasurementRepository {
         return measurementDTOList;
     }
 
-    public SugarMeasurementDTO delete(IndexMeasurementDTO indexDTO) {
-        return measurementDTOList.remove(indexDTO.index.intValue());
+    public SugarMeasurementDTO delete(Integer index) {
+        return measurementDTOList.remove(index.intValue());
     }
 }
