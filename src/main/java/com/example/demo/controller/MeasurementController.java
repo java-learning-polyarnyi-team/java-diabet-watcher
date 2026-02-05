@@ -15,8 +15,8 @@ public class MeasurementController {
     }
 
     @PostMapping(path = "/sugar/measurement")
-    public List<SugarMeasurementDTO> saveSugarMeasurement(@RequestBody SugarMeasurementDTO measurementDTO) {
-        return measurementService.saveSugarMeasurement(measurementDTO);
+    public void saveSugarMeasurement(@RequestBody SugarMeasurementDTO measurementDTO) {
+        measurementService.saveSugarMeasurement(measurementDTO);
     }
 
     @GetMapping(path = "/sugar/measurement")
@@ -24,8 +24,8 @@ public class MeasurementController {
         return measurementService.getSugarMeasurements();
     }
 
-    @DeleteMapping(path = "/sugar/measurement/{index}")
-    public SugarMeasurementDTO deleteMeasurement(@PathVariable("index") Integer index) {
-        return measurementService.deleteMeasurement(index);
+    @DeleteMapping(path = "/sugar/measurement/{id}")
+    public void deleteMeasurement(@PathVariable("id") Integer id) {
+        measurementService.deleteMeasurement(id);
     }
 }
