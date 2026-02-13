@@ -2,12 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.controller.dto.SugarMeasurementDTO;
 import com.example.demo.repository.MeasurementRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class MeasurementService {
     private MeasurementRepository measurementRepository;
 

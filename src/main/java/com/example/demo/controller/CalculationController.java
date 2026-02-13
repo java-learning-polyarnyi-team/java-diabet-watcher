@@ -1,8 +1,9 @@
 package com.example.demo.controller;
 
+import com.example.demo.controller.dto.CarbohydratesDTO;
+import com.example.demo.controller.dto.InsulinCalculationDTO;
 import com.example.demo.service.CalculationService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CalculationController {
@@ -12,8 +13,13 @@ public class CalculationController {
         this.calculationService = calculationService;
     }
 
-    @GetMapping(path = "/calculation/injection")
-    public float getCalculationOfInjection() {
-        return calculationService.getCalculationOfInjection();
+    @PostMapping(path = "/calculation/injection")
+    public float calculationOfInjection(@RequestBody CarbohydratesDTO carbDTO) {
+        return calculationService.getCalculationOfInjection(carbDTO);
+    }
+
+    @PostMapping (path = "/insulin/sugar/{sugarId}/nutriton/{nutritionId}/calculation")
+    public InsulinCalculationDTO insulinCalculation(@PathVariable Integer sugarId, @PathVariable Integer nutritionId) {
+        return calculationService.insulinCalculation(sugarId, nutritionId);
     }
 }
