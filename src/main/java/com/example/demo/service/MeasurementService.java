@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.controller.dto.IndexMeasurementDTO;
 import com.example.demo.controller.dto.SugarMeasurementDTO;
 import com.example.demo.repository.MeasurementRepository;
 import org.springframework.stereotype.Service;
@@ -15,8 +14,8 @@ public class MeasurementService {
         this.measurementRepository = measurementRepository;
     }
 
-    public List<SugarMeasurementDTO> saveSugarMeasurement(SugarMeasurementDTO measurementDTO) {
-        return measurementRepository.save(measurementDTO);
+    public void saveSugarMeasurement(SugarMeasurementDTO measurementDTO) {
+        measurementRepository.save(measurementDTO);
     }
 
 
@@ -25,7 +24,7 @@ public class MeasurementService {
     }
 
 
-    public SugarMeasurementDTO deleteMeasurement(IndexMeasurementDTO indexDTO) {
-        return measurementRepository.delete(indexDTO);
+    public void deleteMeasurement(Integer id) {
+        measurementRepository.delete(id);
     }
 }
