@@ -18,7 +18,7 @@ public class CalculationController {
         return calculationService.getCalculationOfInjection(carbDTO);
     }
 
-    @PostMapping (path = "/insulin/sugar/{sugarId}/nutriton/{nutritionId}/calculation")
+    @PostMapping (path = "/insulin/sugar/{sugarId}/nutrition/{nutritionId}/calculation")
     public InsulinCalculationDTO insulinCalculation(@PathVariable Integer sugarId, @PathVariable Integer nutritionId) {
         return calculationService.insulinCalculation(sugarId, nutritionId);
     }
